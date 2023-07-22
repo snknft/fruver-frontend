@@ -1,0 +1,11 @@
+/* Colores personalizados */
+.navbar .nav-link {
+    color: #fff;
+  }
+  
+  .navbar .nav-link:hover,
+  .navbar .nav-link.active {
+    color: #000;
+    background-color: #fff;
+  }
+  
