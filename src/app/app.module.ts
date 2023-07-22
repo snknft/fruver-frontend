@@ -4,10 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductoService } from './shared/service/producto.service';
+import { ProductoService } from './shared/service/product.service';
 import { HomeComponent } from './home/home.component';
 import { ProductModule } from './product/product.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { UserModule } from './user/user.module';
 
 
 @NgModule({
@@ -20,12 +21,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot(),
 
-    ProductModule
-  ],
-  providers: [
-    ProductoService
+    ProductModule,
+    UserModule
   ],
   bootstrap: [AppComponent]
 })

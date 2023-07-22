@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ProductCrudComponent } from './product-crud/product-crud.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ProductRoutingModule } from './product-routing.module';
+import { ProductoService } from '../shared/service/product.service';
 
 
 @NgModule({
@@ -22,6 +23,9 @@ import { ProductRoutingModule } from './product-routing.module';
     FormsModule,
     ModalModule.forRoot()
   ],
-  exports: [ProductListComponent, ProductCrudComponent]
+  exports: [ProductListComponent, ProductCrudComponent],
+  providers: [
+    ProductoService
+  ],
 })
 export class ProductModule { }

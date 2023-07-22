@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductoService } from 'src/app/shared/service/producto.service';
+import { ProductoService } from 'src/app/shared/service/product.service';
 
 @Component({
   selector: 'app-product-list',

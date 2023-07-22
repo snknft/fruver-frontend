@@ -4,16 +4,13 @@ import { ProductCrudComponent } from './product-crud/product-crud.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 
 const routes: Routes = [
-  {
-    path: 'management',
-    component: ProductCrudComponent,
-  },
-  { path: 'create', component: ProductCreateComponent },
-  { path: 'edit/:id', component: ProductCreateComponent},
+  { path: 'product/management', component: ProductCrudComponent },
+  { path: 'product/create', component: ProductCreateComponent },
+  { path: 'product/edit/:id', component: ProductCreateComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class ProductRoutingModule {}

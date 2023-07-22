@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/shared/model/product.model';
-import { ProductoService } from 'src/app/shared/service/producto.service';
+import { ProductoService } from 'src/app/shared/service/product.service';
 
 @Component({
   selector: 'app-product-create',
