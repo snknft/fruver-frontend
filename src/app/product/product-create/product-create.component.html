@@ -1,0 +1,87 @@
+<div class="container mt-4">
+  <h4>Agregar Producto</h4>
+  <form (ngSubmit)="productSave()" #productForm="ngForm">
+    <div class="form-group">
+      <label for="tipo">Tipo</label>
+      <select
+        id="tipo"
+        name="tipo"
+        class="form-control"
+        [(ngModel)]="product.tipo"
+        required
+      >
+        <option value="F">Frutas</option>
+        <option value="V">Verduras</option>
+        <option value="G">Granos</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        class="form-control"
+        [(ngModel)]="product.nombre"
+        required="true"
+      />
+    </div>
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea
+        id="descripcion"
+        name="descripcion"
+        class="form-control"
+        [(ngModel)]="product.descripcion"
+        required
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <br>
+      <label for="imagen">Imagen</label>
+      <input *ngIf="!product.imagen"
+        type="file"
+        id="imagen"
+        name="imagen"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+        required
+      />
+      <br>
+      <img *ngIf="product.imagen"
+            [src]="product.imagen"
+            alt="Imagen del Producto"
+            width="50"
+            height="50"
+      />
+      <button *ngIf="product.imagen" class="btn btn-warning" (click)="removeImage()">Eliminar</button>
+      <br>
+    </div>
+    <div class="form-group">
+      <label for="valor_unitario">Valor Unitario</label>
+      <input
+        type="number"
+        id="valor_unitario"
+        name="valor_unitario"
+        class="form-control"
+        min="100"
+        [(ngModel)]="product.valor_unitario"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="cantidad_stock">Cantidad en Stock</label>
+      <input
+        type="number"
+        id="cantidad_stock"
+        name="cantidad_stock"
+        min="1"
+        class="form-control"
+        [(ngModel)]="product.cantidad_stock"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+    <button class="btn btn-danger" (click)="toManagement()">Cancelar</button>
+  </form>
+</div>
