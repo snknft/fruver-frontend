@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ProductCrudComponent } from './product-crud/product-crud.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ProductRoutingModule } from './product-routing.module';
-import { ProductoService } from '../shared/service/product.service';
+import { ProductoService } from '../../shared/service/product.service';
 
 
 @NgModule({

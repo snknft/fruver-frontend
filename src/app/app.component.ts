@@ -7,11 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  ingresar() {
-    // Implementar la lógica para abrir el modal de ingreso como cliente
-  }
-
-  registrarse() {
-    // Implementar la lógica para abrir la pantalla de registro de usuarios
-  }
 }

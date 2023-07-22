@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user-routing.module';
-import { UserService } from '../shared/service/user.service';
+import { UserService } from '../../shared/service/user.service';
 
 
 
