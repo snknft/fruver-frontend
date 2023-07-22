@@ -17,7 +17,7 @@ export class ProductCrudComponent implements OnInit {
   ngOnInit() {}
 
   createProduct() {
-    this.router.navigate(['/create']);
+    this.router.navigate(['product/create']);
   }
 
   readProduct() {
@@ -27,7 +27,7 @@ export class ProductCrudComponent implements OnInit {
   }
 
   editProduct(product: { id: string; }) {
-    this.router.navigate([`/edit/${product.id}`]);
+    this.router.navigate([`product/edit/${product.id}`]);
   }
 
   removeProduct(product: { id: string; nombre: string }, index: any) {

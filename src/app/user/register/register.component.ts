@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit{
         data =>{
           sessionStorage.setItem('cedula', data.cedula);
           sessionStorage.setItem('tipo', data.tipo);
+          window.location.reload();
           this.toManagement();
       });
     }

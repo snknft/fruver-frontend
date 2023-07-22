@@ -1,0 +1,3 @@
+<app-product-crud *ngIf="cedula && tipo == 'A'"></app-product-crud>
+<app-product-list *ngIf="cedula && tipo == 'C'"></app-product-list>
+<app-product-list *ngIf="!cedula"></app-product-list>

@@ -5,16 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductoService } from './shared/service/product.service';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 import { ProductModule } from './product/product.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserModule } from './user/user.module';
+import { WorkspaceComponent } from './workspace/workspace.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HeaderComponent,
+    WorkspaceComponent
   ],
   imports: [
     BrowserModule,

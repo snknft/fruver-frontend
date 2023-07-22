@@ -19,7 +19,7 @@
         <ul *ngIf="cedula" class="navbar-nav ml-auto">
           <!-- Opciones de ingreso y registro -->
           <li class="nav-item">
-            <a class="nav-link">{{cedula}}({{tipo}})</a>
+            <a class="nav-link">{{cedula}}({{tipoStr}})</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click)="logout()">Salir</a>
@@ -32,9 +32,6 @@
   <!-- Contenido -->
   <div class="container">
     <br>
-    
-    <app-product-list *ngIf="!cedula"></app-product-list>
-    <app-product-crud *ngIf="cedula"></app-product-crud>
-
+    <router-outlet></router-outlet>
 </div>
   
