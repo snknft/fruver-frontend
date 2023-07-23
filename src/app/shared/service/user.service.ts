@@ -12,7 +12,7 @@ export class UserService {
   getUsers() {
     return this.http.get<User[]>(`${this.BASE_URL}/usuarios`);
   }
-  getUser(id: string) {
+  getUser(id: number) {
     return this.http.get<User>(
       `${this.BASE_URL}/usuarios/${id}`
     );

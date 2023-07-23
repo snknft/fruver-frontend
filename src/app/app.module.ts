@@ -11,6 +11,7 @@ import { WorkspaceComponent } from './components/workspace/workspace.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SessionService } from './shared/service/session.service';
+import { InvoiceModule } from './modules/invoice/invoice.module';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { SessionService } from './shared/service/session.service';
 
     ProductModule,
     UserModule,
-    //ShoppingCartModule
+    InvoiceModule
   ],
   bootstrap: [AppComponent],
   providers: [SessionService]

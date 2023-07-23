@@ -9,6 +9,8 @@ import { SessionService } from 'src/app/shared/service/session.service';
 import { ShoppingCartDetailService } from 'src/app/shared/service/shopping-cart-detail.service ';
 import { ShoppingCartService } from 'src/app/shared/service/shopping-cart.service';
 import { ProductoService } from 'src/app/shared/service/product.service';
+import { InvoiceService } from 'src/app/shared/service/invoice.service';
+import { Invoice } from 'src/app/shared/model/invoice.model';
 
 @Component({
   selector: 'app-cart',
@@ -34,7 +36,8 @@ export class CartComponent implements OnInit {
     private cartService: ShoppingCartService,
     private detailService: ShoppingCartDetailService,
     private sessionService: SessionService,
-    private productService: ProductoService
+    private productService: ProductoService,
+    private invoiceService: InvoiceService
   ) {
     this.subscription = this.middleware.calledAddProduct$.subscribe((data) => {
       this.addProduct(data);
@@ -142,5 +145,16 @@ export class CartComponent implements OnInit {
     );
   }
 
-  checkout() {}
+  checkout() {
+    let invoice: Invoice = new Invoice('', this.cart.id);
+    console.log(invoice);
+    this.invoiceService.createInvoice(invoice).subscribe(
+      (data) => {
+        console.log('Factura Creada');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

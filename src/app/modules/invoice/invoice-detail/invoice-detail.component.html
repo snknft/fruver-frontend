@@ -1,0 +1,35 @@
+<div class="container">  
+    <br /><br />  
+
+    <button type="button" class="btn btn-primary btn-sm" (click)="toList()">Regresar</button>
+    <br /><br />  
+
+    <p *ngIf="details.length <= 0" class="no-data text-center">
+      No existen ventas!
+    </p>
+  
+    <!-- Lista de productos -->
+    <table class="table table-bordered" *ngIf="details.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">N°</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col center">SubTotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of details; let i = index">
+          <th scope="row">{{ detail.id }}</th>
+          <td>{{ detail.product.nombre }}</td>
+          <td>{{ detail.cantidad_producto }}</td>
+          <td>{{ detail.product.valor_unitario * detail.cantidad_producto }}</td>
+        </tr>
+      </tbody>
+      <tfoot style="font-weight: bold; background-color: cadetblue;">
+        <td scope="row center" colspan="3" style="text-align: center">Total</td>
+        <td> ${{ getTotal() }}</td>
+      </tfoot>
+    </table>
+  </div>
+  

@@ -1,0 +1,31 @@
+<div class="container">  
+    <br /><br />  
+    <p *ngIf="invoices.length <= 0" class="no-data text-center">
+      No existen ventas!
+    </p>
+  
+    <!-- Lista de productos -->
+    <table class="table table-bordered" *ngIf="invoices.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">N°</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Monto Total</th>
+          <th scope="col center" style="text-align: center">
+            Acciones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invoice of invoices; let i = index">
+          <th scope="row">{{ invoice.id }}</th>
+          <td>{{ invoice.client.cedula }}</td>
+          <td>{{ invoice.monto_total }}</td>
+          <td align="center">
+            <button type="button" class="btn btn-success btn-sm" (click)="toDetails(invoice)">Ver</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

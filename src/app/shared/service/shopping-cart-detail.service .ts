@@ -17,6 +17,11 @@ export class ShoppingCartDetailService {
       `${this.BASE_URL}/carroComprasProductos/${id}`
     );
   }
+  findCompraDetalle(carrro_compras_id: string) {
+    return this.http.get<ShoppingCartDetail[]>(
+      `${this.BASE_URL}/carroComprasProductos/detalle/${carrro_compras_id}}`
+    );
+  }
   createShoppingCartDetail(shoppingCartDetail: ShoppingCartDetail) {
     return this.http.post<string>(`${this.BASE_URL}/carroComprasProductos`, shoppingCartDetail);
   }
