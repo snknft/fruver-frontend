@@ -7,10 +7,12 @@ import { ProductCrudComponent } from './product-crud/product-crud.component';
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductoService } from '../../shared/service/product.service';
 import { ShoppingCartModule } from '../shopping-cart/shopping-cart.module';
+import { FilterProductsPipe } from 'src/app/shared/pipes/filter-products-pipe';
 
 
 @NgModule({
   declarations: [
+    FilterProductsPipe,
     ProductListComponent,
     ProductCreateComponent,
     ProductCrudComponent

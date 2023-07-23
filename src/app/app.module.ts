@@ -10,6 +10,7 @@ import { UserModule } from './modules/user/user.module';
 import { WorkspaceComponent } from './components/workspace/workspace.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SessionService } from './shared/service/session.service';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     UserModule,
     //ShoppingCartModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [SessionService]
 })
 export class AppModule { }

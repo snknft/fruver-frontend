@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="form-check form-switch">
+  <div class="form-check form-switch fixed-element-container">
     <input
       class="form-check-input"
       type="checkbox"
@@ -8,15 +8,21 @@
       (click)="toggleCart()"
     />
     <label class="form-check-label" for="flexSwitchCheckDefault"
-      >Mostrar Carrito</label
+      >Carrito</label
     >
   </div>
   <app-cart [hidden]="showCart"></app-cart>
 
-  <div class="row">
+  <p *ngIf="products.length <= 0" class="no-data text-center">
+    No existen productos en el inventario!, contacte con el administrador.
+  </p>
+
+  <div class="row" *ngIf="products.length > 0">
+    <input type="text" class="form-control" [(ngModel)]="filter" placeholder="Filtrar por nombre de producto">
+    <p></p>
     <div
       class="col-lg-3 col-md-4 col-sm-6 mb-4"
-      *ngFor="let product of products"
+      *ngFor="let product of products | filterProducts: filter"
     >
       <div class="card h-100 custom-card" style="align-items: center">
         <br>

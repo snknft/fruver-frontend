@@ -19,7 +19,7 @@ export class ProductCreateComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       //Editar
-      this.service.getProduct(this.id).subscribe(data => {
+      this.service.getProduct(parseInt(this.id)).subscribe(data => {
         this.product = data;
       });
     }

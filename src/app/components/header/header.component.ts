@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Session } from 'src/app/shared/model/session.model';
+import { SessionService } from 'src/app/shared/service/session.service';
 
 @Component({
   selector: 'app-header',
@@ -11,25 +13,13 @@ export class HeaderComponent implements OnInit {
   tipo = '';
   tipoStr = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private sessionService: SessionService) {}
 
   ngOnInit(): void {
-    this.cedula = sessionStorage.getItem('cedula') || '';
-    this.tipo = sessionStorage.getItem('tipo') || '';
-    switch (this.tipo) {
-      case 'A':
-        this.tipoStr = 'Administrador';
-        break;
-      case 'C':
-        this.tipoStr = 'Cliente';
-        break;
-      case 'V':
-        this.tipoStr = 'Ventas';
-        break;
-      default:
-        this.tipoStr = '';
-        break;
-    }
+    let session: Session = this.sessionService.getSession();
+    this.cedula = session.cedula;
+    this.tipo = session.tipo;
+    this.tipoStr = session.tipoStr;
 
     this.router.navigate(['']);
   }
@@ -37,8 +27,6 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.cedula = '';
     this.tipo = '';
-    sessionStorage.removeItem('cedula');
-    sessionStorage.removeItem('tipo');
-    window.location.reload();
+    this.sessionService.logout();
   }
 }

@@ -17,6 +17,11 @@ export class ShoppingCartService {
       `${this.BASE_URL}/carroCompras/${id}`
     );
   }
+  findShoppingCart(cliente_id: any, estado: string) {
+    return this.http.get<ShoppingCart>(
+      `${this.BASE_URL}/carroCompras/${cliente_id}/${estado}`
+    );
+  }
   createShoppingCart(shoppingCart: ShoppingCart) {
     return this.http.post<string>(`${this.BASE_URL}/carroCompras`, shoppingCart);
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user.model';
+import { SessionService } from 'src/app/shared/service/session.service';
 import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit{
   login = '';
   user: User = new User('', '', '');
 
-  constructor(private service: UserService, private router: Router, private route: ActivatedRoute) { 
+  constructor(private service: UserService, private router: Router, private route: ActivatedRoute, private sessionService: SessionService) { 
   }
 
   ngOnInit(): void {
@@ -29,9 +30,7 @@ export class RegisterComponent implements OnInit{
     if (this.login) {
       this.service.findUser(this.user.tipo, this.user.cedula).subscribe(
         data =>{
-          sessionStorage.setItem('cedula', data.cedula);
-          sessionStorage.setItem('tipo', data.tipo);
-          window.location.reload();
+          this.sessionService.login(data);
           this.toManagement();
       });
     }

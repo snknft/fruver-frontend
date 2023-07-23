@@ -12,7 +12,7 @@ export class ProductoService {
   getProducts() {
     return this.http.get<Product[]>(`${this.BASE_URL}/productos`);
   }
-  getProduct(idProducto: string) {
+  getProduct(idProducto: number) {
     return this.http.get<Product>(
       `${this.BASE_URL}/productos/${idProducto}`
     );

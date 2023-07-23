@@ -34,3 +34,10 @@
     background-color: #ffeccc;
   }
   
+
+  .fixed-element-container {
+    position: fixed;
+    top: 60px; 
+    left: 10px;
+    z-index: 9999; 
+  }
