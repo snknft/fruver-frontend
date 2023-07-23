@@ -11,6 +11,7 @@ import { ShoppingCartService } from 'src/app/shared/service/shopping-cart.servic
 import { ProductoService } from 'src/app/shared/service/product.service';
 import { InvoiceService } from 'src/app/shared/service/invoice.service';
 import { Invoice } from 'src/app/shared/model/invoice.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -37,7 +38,8 @@ export class CartComponent implements OnInit {
     private detailService: ShoppingCartDetailService,
     private sessionService: SessionService,
     private productService: ProductoService,
-    private invoiceService: InvoiceService
+    private invoiceService: InvoiceService,
+    //private router: Router
   ) {
     this.subscription = this.middleware.calledAddProduct$.subscribe((data) => {
       this.addProduct(data);
@@ -49,7 +51,6 @@ export class CartComponent implements OnInit {
     if (this.sessionService.isLogged()) {
       let cliente_id = this.sessionService.getSession().id;
       this.cart = new ShoppingCart('', parseInt(cliente_id), 'P');
-      console.log(this.cart);
 
       this.cartService
         .findShoppingCart(this.cart.cliente_id, this.cart.estado)
@@ -57,7 +58,8 @@ export class CartComponent implements OnInit {
           if (data) {
             console.log('Carrito cargado');
             this.cart = data;
-            this.detailService.getShoppingCartDetails().subscribe((data) => {
+            console.log(this.cart);
+            this.detailService.findCompraDetalle(this.cart.id).subscribe((data) => {
               this.cartItems = data;
               this.cartItems.forEach(element => {
                 this.productService.getProduct(element.producto_id).subscribe((data) => {
@@ -136,25 +138,42 @@ export class CartComponent implements OnInit {
   }
 
   getTotal(): number {
+    let totalMount = 0;
+    this.cartItems.forEach(element => {
+      if (element.product) {
+        totalMount += parseInt(element.product.valor_unitario || 0) *
+        element.cantidad_producto;
+      }     
+    });
+    return totalMount;
+    /*
     return this.cartItems.reduce(
-      (total: number, shoppingCartDetail) =>
+      (total: number, shoppingCartDetail) => 
         total +
-        parseInt(shoppingCartDetail.product.valor_unitario) *
+        parseInt(shoppingCartDetail.product.valor_unitario || 0) *
           shoppingCartDetail.cantidad_producto,
       0
     );
+    */
   }
 
   checkout() {
-    let invoice: Invoice = new Invoice('', this.cart.id);
-    console.log(invoice);
-    this.invoiceService.createInvoice(invoice).subscribe(
-      (data) => {
-        console.log('Factura Creada');
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+
+    if (
+      window.confirm(`Está seguro de finalizar la compra?`)
+    ) {
+
+      let invoice: Invoice = new Invoice('', this.cart.id);
+      console.log(invoice);
+      this.invoiceService.createInvoice(invoice).subscribe(
+        (data) => {
+          console.log('Factura Creada');
+          //this.router.navigate(['/']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }

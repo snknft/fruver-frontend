@@ -18,8 +18,6 @@ export class InvoiceListComponent {
   constructor(
     private invoiceService: InvoiceService,
     private cartService: ShoppingCartService,
-    private detailService: ShoppingCartDetailService,
-    private productoService: ProductoService,
     private userService: UserService,
     private router: Router
   ) {

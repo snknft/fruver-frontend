@@ -12,8 +12,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let detail of cartItems | filterDetailProducts: filter">
-        <td>{{ detail.product.nombre }}</td>
-        <td>${{ detail.product.valor_unitario * detail.cantidad_producto }}</td>
+        <td *ngIf="detail.product">{{ detail.product.nombre }}</td>
+        <td *ngIf="detail.product">${{ detail.product.valor_unitario * detail.cantidad_producto }}</td>
         <td>{{ detail.cantidad_producto }}</td>
         <td><button class="btn btn-danger" (click)="removeProduct(detail)">Quitar</button></td>
       </tr>

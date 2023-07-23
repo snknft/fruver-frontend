@@ -22,10 +22,10 @@ export class ProductListComponent implements OnInit{
   filter!: string;
 
   constructor(
+    public snackBar: MatSnackBar,
     private service: ProductoService,
     private router: Router,
     private middleware: CartMiddlewareService,
-    private snackBar: MatSnackBar,
     private sessionService: SessionService
   ) {
     this.readProduct();
