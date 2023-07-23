@@ -1,32 +1,52 @@
-<!-- product-list.component.html -->
 <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let product of products">
-        <div class="card h-100" style="align-items: center;">         
-          <img
+  <div class="form-check form-switch">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      role="switch"
+      id="flexSwitchCheckDefault"
+      (click)="toggleCart()"
+    />
+    <label class="form-check-label" for="flexSwitchCheckDefault"
+      >Mostrar Carrito</label
+    >
+  </div>
+  <app-cart [hidden]="showCart"></app-cart>
+
+  <div class="row">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 mb-4"
+      *ngFor="let product of products"
+    >
+      <div class="card h-100 custom-card" style="align-items: center">
+        <br>
+        <img
           [src]="product.imagen"
           alt="{{ product.name }}"
           width="180"
           height="80"
         />
-          <div class="card-body">
-            <div [ngSwitch]="product.tipo">
-              <div *ngSwitchCase="'F'">Frutas</div>
-              <div *ngSwitchCase="'V'">Verduras</div>
-              <div *ngSwitchCase="'G'">Granos</div>
-              <div *ngSwitchDefault>Otros</div>
+        <div class="card-body">
+          <div [ngSwitch]="product.tipo">
+            <div *ngSwitchCase="'F'">Frutas</div>
+            <div *ngSwitchCase="'V'">Verduras</div>
+            <div *ngSwitchCase="'G'">Granos</div>
+            <div *ngSwitchDefault>Otros</div>
+          </div>
+          <h5 class="card-title">{{ product.nombre }}</h5>
+          <h6 class="card-title">Vr Unidad: $ {{ product.valor_unitario }}</h6>
+          <h6 class="card-title">En stock: {{ product.cantidad_stock }} Und</h6>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+            <div class="form-group flex-grow-1 mb-0">
+              {{ setDefaultQuantity(product) }}
+              <input class="form-control input-custom" [(ngModel)]="product.cantidad_compra" type="number" min="0" step="1" />
             </div>
-            <h5 class="card-title">{{ product.nombre }}</h5>
-            <h6 class="card-title">Vr Unidad: {{ product.valor_unitario }}</h6>
-            <p class="card-text">Cantidad:
-              <input type="number" min="0" step="1" value="0">
-            </p>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-primary" (click)="addToCart(product)">Agregar al carrito</button>
-          </div>
+            <button class="btn btn-primary btn-custom" (click)="callAddProduct(product)">
+              Agregar
+            </button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

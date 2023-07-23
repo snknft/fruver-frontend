@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { ProductCrudComponent } from './product-crud/product-crud.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductoService } from '../../shared/service/product.service';
+import { ShoppingCartModule } from '../shopping-cart/shopping-cart.module';
 
 
 @NgModule({
@@ -21,7 +20,7 @@ import { ProductoService } from '../../shared/service/product.service';
     CommonModule,
     //BrowserModule,
     FormsModule,
-    ModalModule.forRoot()
+    ShoppingCartModule
   ],
   exports: [ProductListComponent, ProductCrudComponent],
   providers: [

@@ -8,22 +8,27 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductModule } from './modules/product/product.module';
 import { UserModule } from './modules/user/user.module';
 import { WorkspaceComponent } from './components/workspace/workspace.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    WorkspaceComponent
+    WorkspaceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
 
     ProductModule,
-    UserModule
+    UserModule,
+    //ShoppingCartModule
   ],
   bootstrap: [AppComponent]
 })

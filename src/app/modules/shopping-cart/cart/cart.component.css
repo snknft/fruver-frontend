@@ -1,0 +1,42 @@
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -350px; /* Panel cerrado por defecto */
+    width: 350px;
+    height: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+    transition: right 0.3s;
+  }
+  
+  .cart-panel.open {
+    right: 0; /* Mostrar el panel cuando esté abierto */
+  }
+  
+  .cart-panel h3 {
+    margin-top: 0;
+  }
+  
+  .cart-panel ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cart-panel li {
+    margin-bottom: 10px;
+  }
+  
+  .total {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .total button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

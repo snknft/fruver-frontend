@@ -1,0 +1,14 @@
+<div class="cart-panel" [class.open]="showCart">
+    <h3>Carrito de compras</h3>
+    <ul>
+      <li *ngFor="let detail of cartItems">
+        {{ detail.product.nombre }} - ${{ detail.product.valor_unitario * detail.cantidad_producto}} - Cant: {{ detail.cantidad_producto }}
+        <button (click)="removeProduct(detail)">Quitar</button>
+      </li>
+    </ul>
+    <div class="total">
+      Total: ${{ getTotal() }}
+      <button (click)="checkout()">Finalizar compra</button>
+    </div>
+  </div>
+  

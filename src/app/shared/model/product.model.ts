@@ -6,6 +6,7 @@ export class Product {
     public descripcion: string,
     public imagen: string,
     public valor_unitario: number,
-    public cantidad_stock: number
+    public cantidad_stock: number,
+    public cantidad_compra: number = 0
   ) {}
 }

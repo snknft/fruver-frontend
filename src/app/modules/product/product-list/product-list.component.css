@@ -1,0 +1,36 @@
+.custom-card {
+    border: 1px solid #fbd4b0; 
+    border-radius: 8px;
+    background-color: #e9ffea; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .custom-card:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .btn-custom {
+    background-color: #e2a740; 
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-custom:hover {
+    background-color: #7f3a0c;
+  }
+
+  .input-custom {
+    border: 1px solid #fbd4b0; 
+    border-radius: 0px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  .input-custom:hover {
+    background-color: #ffeccc;
+  }
+  
